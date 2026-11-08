@@ -2,7 +2,7 @@
 
 A Vapor client for the Chromium HTML to PDF route of [Gotenberg](https://gotenberg.dev). It does one thing: send an `index.html` (plus an optional header, footer and assets) to `/forms/chromium/convert/html` and hand back the PDF bytes. It also wraps Gotenberg's `/health` and `/version` endpoints.
 
-It works with both Gotenberg 8 and Gotenberg 9. Gotenberg 9 answers `400` to any request carrying a Gotenberg 8 form field it renamed or removed. The [thoven87/gotenberg-kit](https://github.com/thoven87/gotenberg-kit) package sends `generateDocumentOutline`, `generateTaggedPdf`, `pdfua` and `splitUnify` on every request, so it cannot talk to Gotenberg 9. This package replaces it for HTML to PDF. It sends only the fields you set, and only fields whose names are the same in Gotenberg 8 and 9.
+It is deliberately narrow: HTML to PDF only, with the handful of page options that need covers. It works with both Gotenberg 8 and Gotenberg 9. Gotenberg 9 answers `400` to any request carrying a form field it renamed or removed, so the client sends only the fields you set, and only fields whose names are the same in Gotenberg 8 and 9.
 
 ## Requirements
 
